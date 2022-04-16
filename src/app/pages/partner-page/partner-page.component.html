@@ -1,0 +1,197 @@
+<div class="become-partner">
+  <app-leaves-wrapper>
+    <div>
+      <div class="partner-header">Стать партнером</div>
+
+      <div class="partner-row row">
+        <div class="partner-col1 col-6">
+          <div class="title">1. Зарегистрируйте заведение онлайн</div>
+          <div class="description">
+            Заполните форму с информацией о вашем заведении и контактными
+            данными
+          </div>
+          <div class="title">2. Мы с вами свяжемся</div>
+          <div class="description">
+            Наша команда свяжется с вами в скором времени, чтобы получить
+            необходимые данные для размещения вашего заведения на сайте
+          </div>
+          <div class="title">3. Начните получать заказы уже на этой неделе</div>
+          <div class="description">
+            Ваше заведение будет добавлено в течение недели и вы начнете
+            получать заказы от пользователей нашей службы
+          </div>
+        </div>
+
+        <div class="partner-col2 col-6">
+          <form
+            novalidate
+            (ngSubmit)="onSubmit($event)"
+            [formGroup]="partnerForm"
+            class="app-form"
+          >
+            <div class="form-row">
+              <div class="col">
+                <div class="form-group">
+                  <input
+                    type="text"
+                    class="form-control"
+                    required
+                    formControlName="cafeName"
+                    autocomplete="off"
+                    placeholder="Название заведения"
+                  />
+                  <div
+                    *ngIf="
+                      cafeName &&
+                      cafeName.invalid &&
+                      (cafeName.dirty || cafeName.touched)
+                    "
+                    style="display: block"
+                    class="invalid-feedback"
+                  >
+                    Введите название заведения
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="col">
+                <div class="form-group">
+                  <input
+                    type="text"
+                    class="form-control"
+                    required
+                    formControlName="email"
+                    autocomplete="off"
+                    placeholder="Email"
+                  />
+                  <div
+                    *ngIf="
+                      email && email.invalid && (email.dirty || email.touched)
+                    "
+                    style="display: block"
+                    class="invalid-feedback"
+                  >
+                    Введите email
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="form-row row">
+              <div class="col">
+                <div class="form-group">
+                  <input
+                    type="text"
+                    class="form-control"
+                    required
+                    formControlName="surname"
+                    autocomplete="off"
+                    placeholder="Фамилия"
+                  />
+                  <div
+                    *ngIf="
+                      surname &&
+                      surname.invalid &&
+                      (surname.dirty || surname.touched)
+                    "
+                    style="display: block"
+                    class="invalid-feedback"
+                  >
+                    Введите фамилию
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="form-group">
+                  <input
+                    type="text"
+                    class="form-control"
+                    required
+                    formControlName="name"
+                    autocomplete="off"
+                    placeholder="Имя"
+                  />
+                  <div
+                    *ngIf="name && name.invalid && (name.dirty || name.touched)"
+                    style="display: block"
+                    class="invalid-feedback"
+                  >
+                    Введите имя
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="form-row row">
+              <div class="col">
+                <div class="form-group">
+                  <input
+                    type="text"
+                    class="form-control"
+                    required
+                    formControlName="patronymic"
+                    autocomplete="off"
+                    placeholder="Отчество"
+                  />
+                  <div
+                    *ngIf="
+                      patronymic &&
+                      patronymic.invalid &&
+                      (patronymic.dirty || patronymic.touched)
+                    "
+                    style="display: block"
+                    class="invalid-feedback"
+                  >
+                    Введите отчество
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="form-group">
+                  <input
+                    type="text"
+                    class="form-control"
+                    required
+                    formControlName="phone"
+                    autocomplete="off"
+                    placeholder="Телефон"
+                  />
+                  <div
+                    *ngIf="
+                      phone && phone.invalid && (phone.dirty || phone.touched)
+                    "
+                    style="display: block"
+                    class="invalid-feedback"
+                  >
+                    Введите телефон
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="form-row row">
+              <div class="col">
+                <div class="form-group">
+                  <select
+                    name="type"
+                    id="type"
+                    #cafeType
+                    (change)="onChangeType(cafeType.value)"
+                  >
+                    <option [value]="types.Cafe" key="cafe">Кафе</option>
+                    <option [value]="types.Restaurant" key="restaurant">
+                      Ресторан
+                    </option>
+                    <option [value]="types.Shop" key="shop">Магазин</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <button type="submit" class="btn-red btn btn-primary">
+              Начать сотрудничество
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </app-leaves-wrapper>
+</div>

@@ -1,0 +1,154 @@
+<div class="main-page">
+  <div class="search-location">
+    <div class="search-container">
+      <div class="header-1">Доставляем радость</div>
+      <div class="header-2">
+        Быстрая доставка из ваших любимых ресторанов, кафе и магазинов
+      </div>
+      <div>
+        <div class="header-3">Укажите город, в котором вы находитесь</div>
+        <div>
+          <select
+            name="location"
+            id="location"
+            #town
+            (change)="changeTown()"
+            [ngStyle]="{
+              border: townIsValid ? 'none' : 'solid 3px #dc3545',
+              'background-color': townIsValid ? 'white' : 'rgb(255, 170, 170)'
+            }"
+          >
+            <option value="none" key="none">Выберите город доставки</option>
+            <option [value]="towns.Minsk" key="minsk">Минск</option>
+            <option [value]="towns.Grodno" key="grodno">Гродно</option>
+            <option [value]="towns.Gomel" key="gomel">Гомель</option>
+            <option [value]="towns.Brest" key="brest">Брест</option>
+            <option [value]="towns.Mogilev" key="mogilev">Могилев</option>
+            <option [value]="towns.Vitebsk" key="vitebsk">Витебск</option>
+          </select>
+          <button
+            type="button"
+            class="search-btn btn btn-light"
+            (click)="selectLocation($event, town.value)"
+          >
+            Найти заведения
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="about-us">
+    <div class="about-us-container">
+      <div class="header-1">О нас</div>
+      <div class="header-2">
+        Ежа.by – это проект по доставке еды из ресторанов и кафе, а также
+        продуктов из магазинов. Наша цель заключается в том, чтобы максимально
+        автоматизировать и упростить весь цикл доставки ваших заказов, при этом
+        сохраняя качество и доступность любимых блюд. Мы экономим ваше время и
+        предлагаем выбрать то, что подходит именно Вам. На нашем сайте вы можете
+        сравнивать цены в разных заведениях и делать объективный выбор,
+        заказывать блюда без регистрации на сайте. Список популярных заведений,
+        подключенных к сервису, а также список блюд и товаров постоянно
+        пополняется.
+      </div>
+    </div>
+  </div>
+
+  <div class="how-it-works">
+    <div class="left-picture"></div>
+    <div class="how-it-works-container">
+      <div class="header-1">Как это работает?</div>
+      <div class="steps">
+        <div class="step">
+          <div class="circle">1</div>
+          <div class="header">Выберите город доставки</div>
+          <div class="description">
+            Вам будут показаны рестораны, кафе и магазины вашего города
+          </div>
+        </div>
+        <div class="step">
+          <div class="circle">2</div>
+          <div class="header">Выберите заведение</div>
+          <div class="description">
+            Выберите понравившееся заведение, чтобы просмотреть его меню
+          </div>
+        </div>
+        <div class="step">
+          <div class="circle">3</div>
+          <div class="header">Выберите нужные продукты</div>
+          <div class="description">
+            Добавьте нужные блюда и продукты в корзину и оформите заказ
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="right-picture"></div>
+  </div>
+
+  <div class="delivery-terms">
+    <div class="delivery-terms-container">
+      <div class="header-1">Как заказать?</div>
+      <div class="header-2">
+        <ul>
+          <li>Выберите ваш город.</li>
+          <li>Выберите заведение, в котором вы хотите сделать заказ.</li>
+          <li>Положите в корзину блюда.</li>
+          <li>
+            Укажите ваши контактные данные и адрес, куда необходимо доставить
+            заказ.
+          </li>
+          <li>Выберите способ оплаты: наличными или картой курьеру.</li>
+          <li>
+            Наши операторы либо операторы заведения свяжутся с вами для
+            подтверждения заказа.
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="work-with-us">
+    <div class="left-picture"></div>
+    <div class="work-with-us-container">
+      <div class="header-1">Работа с "Ежа.by"</div>
+      <div class="steps">
+        <div class="step">
+          <div class="circle">Стать партнером</div>
+          <div class="description">
+            Мы работаем за стоимость своих услуг с каждого оформленного на
+            сервисе заказа. Стоимость услуг зависит от того, какой способ
+            доставки вы выберете: своими курьерами или курьерами службы Ежа.by.
+            Размещаясь у нас, вы получаете маркетинговую поддержку, бесплатное
+            приложение для приёма заказов и полную поддержку клиентов.
+          </div>
+          <button
+            type="button"
+            class="step-btn btn btn-light"
+            (click)="redirectToPartner()"
+          >
+            Стать партнером
+          </button>
+        </div>
+        <div class="step">
+          <div class="circle">Стать курьером</div>
+          <div class="description">
+            Курьеры службы доставки Ежа.by могут начинать работу в любое время в
+            любом месте, не привязываясь к графику. Доход будет зависеть от
+            количества выполненных заказов. Таким образом, курьеры могут
+            совмещать учебу или основную работу с подработкой в службе доставки.
+            Выполнять заказы можно на машине, мотоцикле или велосипеде.
+          </div>
+          <button
+            type="button"
+            class="step-btn btn btn-light"
+            (click)="redirectToCourier()"
+          >
+            Стать курьером
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="right-picture"></div>
+  </div>
+</div>

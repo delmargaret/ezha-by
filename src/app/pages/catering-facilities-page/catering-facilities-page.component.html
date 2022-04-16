@@ -1,0 +1,48 @@
+<div class="cafes">
+  <div class="cafe-type-row">
+    <div class="cafe" (click)="applyFilter($event, 'cafe')">
+      <div>Рестораны</div>
+    </div>
+    <div class="shop" (click)="applyFilter($event, 'shop')">
+      <div>Магазины</div>
+    </div>
+  </div>
+  <div class="tags">
+    <div
+      class="tag"
+      *ngFor="let tag of allTags"
+      (click)="applyFilter($event, tag)"
+    >
+      {{ tag }}
+    </div>
+  </div>
+  <div class="search input-group rounded">
+    <input
+      type="search"
+      class="form-control rounded"
+      placeholder="Search"
+      aria-label="Search"
+      aria-describedby="search-addon"
+      #searchInput
+    />
+    <span
+      class="input-group-text border-0"
+      id="search-addon"
+      (click)="searchCafes(searchInput.value)"
+    >
+      <i class="fa-solid fa-magnifying-glass" style="color: black"></i>
+    </span>
+  </div>
+  <app-leaves-wrapper leavesClass="large">
+    <div class="cafe-list" *ngIf="filteredCateringFacilities.length">
+      <app-cafe-card
+        [cafe]="cafe"
+        *ngFor="let cafe of filteredCateringFacilities"
+        (click)="selectCafe(cafe.id)"
+      ></app-cafe-card>
+    </div>
+    <div class="not-found" *ngIf="!filteredCateringFacilities.length">
+      Заведения не найдены
+    </div>
+  </app-leaves-wrapper>
+</div>

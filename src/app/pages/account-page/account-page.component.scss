@@ -1,0 +1,53 @@
+.account {
+  font-size: 20px;
+  
+  .title {
+    font-weight: 700;
+    font-style: normal;
+    font-size: 52px;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom: 20px;
+  }
+
+  input {
+    height: 45px;
+  }
+
+  .form-row {
+    margin-bottom: 20px;
+  }
+
+  select {
+    height: 45px;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    min-width: -webkit-fill-available;
+    cursor: pointer;
+  }
+
+  .form-control {
+    font-size: 20px !important;
+  }
+
+  .btn-red {
+    font-size: 20px;
+  }
+}
+
+.account.disabled:before {
+  position: absolute;
+  content: "";
+  width: 100%;
+  background: rgba($color: #000000, $alpha: 0.3);
+  height: 100%;
+  left: 0;
+}
+.main-spinner.spinner-border {
+  position: absolute;
+  margin-left: calc((100vw - 80px) / 2);
+  margin-top: 250px;
+  width: 4rem;
+  height: 4rem;
+}

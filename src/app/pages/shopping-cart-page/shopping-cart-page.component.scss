@@ -1,0 +1,135 @@
+.cart {
+  .not-found {
+    text-align: center;
+    margin-top: 50px;
+    font-size: 22px;
+    font-weight: 700;
+  }
+
+  .group {
+    margin: 0 80px;
+    padding-top: 30px;
+
+    .cafe-name {
+      font-size: 24px;
+      border-bottom: 1px solid rgb(165, 165, 165);
+    }
+
+    .dish {
+      min-height: 150px;
+      display: flex;
+      margin-top: 50px;
+
+      .dish-img {
+        height: 100px;
+        width: 100px;
+        object-fit: cover;
+        border-radius: 15px;
+      }
+
+      .description {
+        width: 500px;
+        overflow-wrap: break-word;
+        margin-left: 50px;
+        font-size: 20px;
+
+        .title {
+          font-weight: 700;
+          font-style: normal;
+          font-size: 24px;
+          color: #000000;
+        }
+      }
+
+      .price-1,
+      .number,
+      .price-2,
+      .delete {
+        margin-top: 30px;
+        margin: auto;
+        width: 50px;
+        text-align: center;
+        font-size: 22px;
+      }
+
+      .delete {
+        font-size: x-large;
+        cursor: pointer;
+      }
+
+      .number {
+        display: flex;
+
+        div {
+          margin-left: 8px;
+        }
+
+        .plus,
+        .minus {
+          cursor: pointer;
+        }
+      }
+    }
+  }
+
+  .total {
+    padding: 20px 80px;
+    margin-top: 50px;
+    border-bottom: 1px solid rgb(165, 165, 165);
+    border-top: 1px solid rgb(165, 165, 165);
+    background-color: rgb(228, 228, 228);
+    font-size: 20px;
+
+    .text {
+      margin-right: 15px;
+      font-weight: 600;
+    }
+  }
+
+  .order-info {
+    font-size: 20px;
+
+    .title {
+      text-align: center;
+      font-weight: 700;
+      font-style: normal;
+      font-size: 40px;
+      color: #000000;
+      padding-top: 30px;
+      padding-bottom: 30px;
+    }
+
+    .town {
+      margin: auto;
+    }
+
+    .radio-text {
+      margin: auto 15px auto 5px;
+    }
+
+    .payment-title {
+      font-size: large;
+    }
+
+    .btn-submit {
+      margin-bottom: 50px;
+    }
+
+    input {
+      height: 45px;
+    }
+
+    .form-row {
+      margin-bottom: 20px;
+    }
+
+    .form-control {
+      font-size: 20px !important;
+    }
+
+    button {
+      min-width: -webkit-fill-available;
+      font-size: 20px;
+    }
+  }
+}

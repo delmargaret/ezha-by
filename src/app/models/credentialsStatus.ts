@@ -1,0 +1,6 @@
+export enum CredentialsStatus {
+  CREDENTIALS_NOT_FOUND,
+  WRONG_ROLE,
+  CREDENTIALS_OK,
+  CREDENTIALS_NOT_CHECKED,
+}

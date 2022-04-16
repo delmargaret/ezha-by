@@ -1,0 +1,93 @@
+.my-orders {
+  .title {
+    font-weight: 700;
+    font-style: normal;
+    font-size: 30px;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom: 20px;
+  }
+
+  .order-date-type {
+    padding-top: 20px;
+    display: flex;
+    justify-content: center;
+
+    .all,
+    .week {
+      margin-right: 30px;
+    }
+
+    .all,
+    .week,
+    .month {
+      div {
+        min-height: 36px;
+        min-width: 200px;
+        text-align: center;
+        background-color: rgb(228, 155, 155);
+        border-radius: 8px;
+        font-weight: 700;
+        font-size: 20px;
+        cursor: pointer;
+
+        &:hover {
+          background-color: rgb(228, 100, 100);
+        }
+
+        &.selected {
+          background-color: rgb(228, 80, 80);
+        }
+      }
+    }
+  }
+
+  .orders {
+    font-size: larger;
+    .dish-img {
+      height: 60px;
+      width: 60px;
+      object-fit: cover;
+      border: 1px solid rgb(95, 95, 95);
+      border-radius: 10px;
+      margin-right: 10px;
+    }
+
+    #main-row {
+      padding: 50px;
+    }
+
+    .date-col {
+      border-right: 1px solid rgb(129, 129, 129);
+    }
+
+    .dishes {
+      margin-left: 20px;
+      .dish {
+        margin-bottom: 20px;
+      }
+
+      .total-price {
+        margin-top: 50px;
+        font-weight: 700;
+      }
+    }
+  }
+}
+
+.my-orders.disabled:before {
+  position: absolute;
+  content: "";
+  width: 100%;
+  background: rgba($color: #000000, $alpha: 0.3);
+  height: 100%;
+  left: 0;
+}
+.main-spinner.spinner-border {
+  position: absolute;
+  margin-left: calc((100vw - 80px) / 2);
+  margin-top: 250px;
+  width: 4rem;
+  height: 4rem;
+}

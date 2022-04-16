@@ -1,0 +1,214 @@
+<div class="account" [ngClass]="isLoading ? 'disabled' : ''">
+  <div
+    class="main-spinner spinner-border text-danger"
+    role="status"
+    *ngIf="isLoading"
+  >
+    <span class="visually-hidden">Loading...</span>
+  </div>
+
+  <app-leaves-wrapper>
+    <div class="title">Аккаунт</div>
+
+    <div class="row" id="main-row">
+      <div class="col"></div>
+      <div class="col-8">
+        <form
+          novalidate
+          (ngSubmit)="onSubmit($event)"
+          [formGroup]="accountForm"
+          class="app-form"
+        >
+          <div class="form-row row">
+            <div class="col">
+              <div class="form-group">
+                <input
+                  type="text"
+                  class="form-control"
+                  required
+                  formControlName="surname"
+                  autocomplete="off"
+                  placeholder="Фамилия"
+                />
+                <div
+                  *ngIf="
+                    surname &&
+                    surname.invalid &&
+                    (surname.dirty || surname.touched)
+                  "
+                  style="display: block"
+                  class="invalid-feedback"
+                >
+                  Введите фамилию
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="form-group">
+                <input
+                  type="text"
+                  class="form-control"
+                  required
+                  formControlName="name"
+                  autocomplete="off"
+                  placeholder="Имя"
+                />
+                <div
+                  *ngIf="name && name.invalid && (name.dirty || name.touched)"
+                  style="display: block"
+                  class="invalid-feedback"
+                >
+                  Введите имя
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-row row">
+            <div class="col">
+              <div class="form-group">
+                <input
+                  type="text"
+                  class="form-control"
+                  required
+                  formControlName="patronymic"
+                  autocomplete="off"
+                  placeholder="Отчество"
+                />
+                <div
+                  *ngIf="
+                    patronymic &&
+                    patronymic.invalid &&
+                    (patronymic.dirty || patronymic.touched)
+                  "
+                  style="display: block"
+                  class="invalid-feedback"
+                >
+                  Введите отчество
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="form-group">
+                <input
+                  type="text"
+                  class="form-control"
+                  required
+                  formControlName="phone"
+                  autocomplete="off"
+                  placeholder="Телефон"
+                />
+                <div
+                  *ngIf="
+                    phone && phone.invalid && (phone.dirty || phone.touched)
+                  "
+                  style="display: block"
+                  class="invalid-feedback"
+                >
+                  Введите телефон
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-row row">
+            <div class="col">
+              <div class="form-group">
+                <select
+                  name="location"
+                  id="location"
+                  #locationType
+                  (change)="onChangeLocationType(locationType.value)"
+                >
+                  <option [value]="towns.Minsk" key="minsk">Минск</option>
+                  <option [value]="towns.Grodno" key="grodno">Гродно</option>
+                  <option [value]="towns.Gomel" key="gomel">Гомель</option>
+                  <option [value]="towns.Brest" key="brest">Брест</option>
+                  <option [value]="towns.Mogilev" key="mogilev">Могилев</option>
+                  <option [value]="towns.Vitebsk" key="vitebsk">Витебск</option>
+                </select>
+              </div>
+            </div>
+            <div class="col">
+              <div class="form-group">
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="street"
+                  autocomplete="off"
+                  placeholder="Улица"
+                />
+                <div
+                  *ngIf="
+                    street && street.invalid && (street.dirty || street.touched)
+                  "
+                  style="display: block"
+                  class="invalid-feedback"
+                >
+                  Введите название улицы
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-row row">
+            <div class="col">
+              <div class="form-group">
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="house"
+                  autocomplete="off"
+                  placeholder="Дом"
+                />
+                <div
+                  *ngIf="
+                    house && house.invalid && (house.dirty || house.touched)
+                  "
+                  style="display: block"
+                  class="invalid-feedback"
+                >
+                  Введите номер дома
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="form-group">
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="flat"
+                  autocomplete="off"
+                  placeholder="Квартира"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="col">
+              <div class="form-group">
+                <input
+                  type="password"
+                  class="form-control"
+                  id="passwordInput"
+                  formControlName="password"
+                  autocomplete="off"
+                  placeholder="Пароль"
+                />
+                <div
+                  *ngIf="info"
+                  style="display: block"
+                  class="invalid-feedback"
+                >
+                  {{ info }}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <button type="submit" class="btn-red btn btn-primary btn-submit">
+            Сохранить
+          </button>
+        </form>
+      </div>
+      <div class="col"></div>
+    </div>
+  </app-leaves-wrapper>
+</div>

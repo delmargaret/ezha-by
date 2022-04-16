@@ -1,0 +1,77 @@
+/* You can add global styles to this file, and also import other style files */
+body {
+  margin: 0 !important;
+}
+
+.btn-red {
+  color: black !important;
+  background-color: rgba(235, 95, 95, 0.6) !important;
+  border-color: rgba(235, 95, 95, 0.6) !important;
+  width: 100% !important;
+}
+
+.btn-red:hover {
+  color: black !important;
+  background-color: rgb(235, 95, 95) !important;
+  border-color: rgb(235, 95, 95) !important;
+}
+
+.btn-red:active {
+  color: black !important;
+  background-color: rgb(235, 95, 95) !important;
+  border-color: rgb(235, 95, 95) !important;
+}
+
+.btn-red:focus {
+  color: black !important;
+  background-color: rgb(235, 95, 95) !important;
+  border-color: rgb(235, 95, 95) !important;
+  box-shadow: 0 0 0 0.2rem rgba(235, 95, 95, 0.25) !important;
+}
+
+.btn-red:active:focus {
+  box-shadow: 0 0 0 0.2rem rgba(235, 95, 95, 0.25) !important;
+}
+
+input:focus {
+  border-color: rgb(235, 95, 95) !important;
+  box-shadow: 0 0 0 0.2rem rgba(235, 95, 95, 0.25) !important;
+}
+
+input:focus {
+  border-color: rgb(235, 95, 95) !important;
+  box-shadow: 0 0 0 0.2rem rgba(235, 95, 95, 0.25) !important;
+}
+
+input.ng-valid.ng-dirty,
+input.ng-valid.ng-touched {
+  border-color: #28a745;
+  padding-right: calc(1.5em + 0.75rem);
+  background-image: url("./assets/valid.svg");
+  background-color: #fff;
+  background-repeat: no-repeat;
+  background-position: right calc(0.375em + 0.1875rem) center;
+  background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
+}
+
+input.ng-valid.ng-dirty:focus,
+input.ng-valid.ng-touched:focus {
+  border-color: #28a745;
+  box-shadow: 0 0 0 0.2rem rgb(40 167 69 / 25%);
+}
+
+input.ng-invalid.ng-dirty,
+input.ng-invalid.ng-touched {
+  border-color: #dc3545;
+  padding-right: calc(1.5em + 0.75rem);
+  background-image: url("./assets/invalid.svg");
+  background-repeat: no-repeat;
+  background-position: right calc(0.375em + 0.1875rem) center;
+  background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
+}
+
+input.ng-invalid.ng-dirty:focus,
+input.ng-invalid.ng-touched:focus {
+  border-color: #dc3545;
+  box-shadow: 0 0 0 0.2rem rgb(220 53 69 / 25%);
+}

@@ -1,0 +1,59 @@
+<div class="navbar navbar-light">
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-bs-toggle="offcanvas"
+    data-bs-target="#offcanvas-navbar"
+    aria-controls="offcanvas-navbar"
+    style="height: 46px"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvas-navbar">
+    <app-offcanvas></app-offcanvas>
+  </div>
+
+  <div class="brand" (click)="redirectToMainPage()">
+    <img src="../../../assets/logo9.png" width="150" alt="logo" />
+  </div>
+  <div class="cart" (click)="redirectToCart()">
+    <img src="../../../assets/26.png" height="35" alt="" />
+    <span
+      *ngIf="number && number > 0"
+      class="position-absolute translate-middle badge rounded-pill bg-danger"
+      style="font-size: 15px"
+    >
+      {{ number > 99 ? "99+" : number }}
+      <span class="visually-hidden">unread messages</span>
+    </span>
+  </div>
+  <div class="user">
+    <a
+      data-bs-toggle="collapse"
+      href="#collapseExample"
+      role="button"
+      aria-expanded="false"
+      aria-controls="collapseExample"
+    >
+      <img src="../../../assets/25.png" height="35" alt="" />
+    </a>
+  </div>
+  <div class="collapse nav-collapse" id="collapseExample">
+    <div class="card card-body" *ngIf="!isLoggedIn">
+      <div class="app-link">
+        <a href="/login">Войти</a>
+      </div>
+    </div>
+    <div class="card card-body" *ngIf="isLoggedIn">
+      <div class="app-link loggedin">
+        <a href="account">Аккаунт</a>
+      </div>
+      <div class="app-link loggedin">
+        <a href="orders">Мои заказы</a>
+      </div>
+      <div class="app-link loggedin">
+        <a (click)="logOut()">Выйти</a>
+      </div>
+    </div>
+  </div>
+</div>

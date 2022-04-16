@@ -1,0 +1,81 @@
+<div *ngIf="!cateringFacility">
+  <app-leaves-wrapper>
+    <div class="not-found">Заведение не найдено</div>
+  </app-leaves-wrapper>
+</div>
+<div
+  class="cafe-page"
+  *ngIf="cateringFacility"
+  [ngClass]="isLoading ? 'disabled' : ''"
+>
+  <div
+    class="main-spinner spinner-border text-danger"
+    role="status"
+    *ngIf="isLoading"
+  >
+    <span class="visually-hidden">Loading...</span>
+  </div>
+
+  <div class="main-info">
+    <div class="cafe-img">
+      <div class="image" [ngStyle]="{ 'background-image': mainPicture }"></div>
+      <div>
+        {{ cateringFacility.cateringFacilityName }}
+      </div>
+    </div>
+  </div>
+
+  <div class="additional-info">
+    <div class="info">
+      <div class="title">Режим работы:</div>
+      <div class="text">{{ cateringFacility.workingHours }}</div>
+    </div>
+    <div class="info">
+      <div class="title">Доставка:</div>
+      <div class="text">
+        {{ cateringFacility.deliveryTime }}
+        <span style="margin-left: 25px">
+          {{
+            !cateringFacility.deliveryPrice
+              ? "Бесплатно"
+              : cateringFacility.deliveryPrice + "р."
+          }}
+        </span>
+      </div>
+    </div>
+    <div class="info">
+      <div class="title">Адрес:</div>
+      <div class="text">
+        г. {{ towns[cateringFacility.town] }}, ул.
+        {{ cateringFacility.street }}, {{ cateringFacility.houseNumber }}
+      </div>
+    </div>
+  </div>
+
+  <div class="cafe-dishes" *ngIf="filteredDishes.length">
+    <div class="categories">
+      <div
+        class="category"
+        *ngFor="let category of allCategories"
+        (click)="applyFilter($event, category.categoryId)"
+      >
+        {{ category.categoryName }}
+      </div>
+    </div>
+
+    <div class="dish-list">
+      <app-dish-card
+        [dish]="dish"
+        [orderDishes]="orderDishes"
+        [cafeId]="id"
+        *ngFor="let dish of filteredDishes"
+      ></app-dish-card>
+    </div>
+  </div>
+
+  <div *ngIf="!filteredDishes.length && !isLoading">
+    <app-leaves-wrapper>
+      <div class="not-found">Блюда не найдены</div>
+    </app-leaves-wrapper>
+  </div>
+</div>

@@ -1,0 +1,46 @@
+.dish-card {
+  border-radius: 10px;
+  max-height: 200px;
+  margin-bottom: 30px;
+
+  .card-image {
+    height: 250px;
+    object-fit: cover;
+    border-radius: 0.25rem;
+    border: solid 1px rgb(238, 238, 238);
+  }
+
+  .card-body {
+    .card-title {
+      font-weight: 700;
+      font-size: 24px;
+    }
+
+    .card-text.price {
+      font-size: 18px;
+      display: flex;
+
+      .buy {
+        margin-left: auto;
+        display: flex;
+
+        .cart-img {
+          cursor: pointer;
+        }
+
+        .dish-number {
+          display: flex;
+
+          div {
+            margin-left: 8px;
+          }
+
+          .plus,
+          .minus {
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+}

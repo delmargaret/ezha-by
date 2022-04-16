@@ -1,0 +1,246 @@
+<div class="contact-us">
+  <div class="contact-us-header">Связь с нами</div>
+  <app-leaves-wrapper>
+    <div class="contact-us-row">
+      <div class="phone">
+        <div class="img">
+          <img src="../../../assets/16.png" />
+        </div>
+        <div>+375 29 1233256</div>
+        <div>+375 25 7578788</div>
+      </div>
+      <div class="email">
+        <div class="img">
+          <img src="../../../assets/17.png" />
+        </div>
+        <div>info@ezha.by</div>
+      </div>
+    </div>
+    <div class="hotline">
+      <div class="img">
+        <img src="../../../assets/18.png" />
+      </div>
+      <div>Для совершения или отмены заказа</div>
+      <div class="number">2306</div>
+    </div>
+    <div class="address">
+      <div class="header">Мы находимся:</div>
+      <div>Беларусь, Минск, 220036, ул. Свердлова 13</div>
+    </div>
+
+    <div class="feedback">
+      <div class="row" id="main-row">
+        <div class="col"></div>
+        <div class="col-8">
+          <div class="header">Обратная связь</div>
+          <form
+            novalidate
+            (ngSubmit)="onSubmit($event)"
+            [formGroup]="feedbackForm"
+            class="app-form"
+          >
+            <div class="form-row row">
+              <div class="col">
+                <div class="form-group">
+                  <select
+                    name="type"
+                    id="type"
+                    #feedbackType
+                    (change)="onChangeType(feedbackType.value)"
+                  >
+                    <option [value]="types.Review" key="review">Отзыв</option>
+                    <option [value]="types.Suggestion" key="suggestion">
+                      Предложение
+                    </option>
+                    <option [value]="types.Complaint" key="complaint">
+                      Жалоба
+                    </option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="form-row row">
+              <div class="col">
+                <div class="form-group">
+                  <input
+                    type="text"
+                    class="form-control"
+                    required
+                    formControlName="surname"
+                    autocomplete="off"
+                    placeholder="Фамилия"
+                  />
+                  <div
+                    *ngIf="
+                      surname &&
+                      surname.invalid &&
+                      (surname.dirty || surname.touched)
+                    "
+                    style="display: block"
+                    class="invalid-feedback"
+                  >
+                    Введите фамилию
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="form-group">
+                  <input
+                    type="text"
+                    class="form-control"
+                    required
+                    formControlName="name"
+                    autocomplete="off"
+                    placeholder="Имя"
+                  />
+                  <div
+                    *ngIf="name && name.invalid && (name.dirty || name.touched)"
+                    style="display: block"
+                    class="invalid-feedback"
+                  >
+                    Введите имя
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="form-row row">
+              <div class="col">
+                <div class="form-group">
+                  <input
+                    type="text"
+                    class="form-control"
+                    required
+                    formControlName="patronymic"
+                    autocomplete="off"
+                    placeholder="Отчество"
+                  />
+                  <div
+                    *ngIf="
+                      patronymic &&
+                      patronymic.invalid &&
+                      (patronymic.dirty || patronymic.touched)
+                    "
+                    style="display: block"
+                    class="invalid-feedback"
+                  >
+                    Введите отчество
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="form-group">
+                  <input
+                    type="text"
+                    class="form-control"
+                    required
+                    formControlName="email"
+                    autocomplete="off"
+                    placeholder="Email"
+                  />
+                  <div
+                    *ngIf="
+                      email && email.invalid && (email.dirty || email.touched)
+                    "
+                    style="display: block"
+                    class="invalid-feedback"
+                  >
+                    Введите email
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="form-row row">
+              <div class="col">
+                <div class="form-group">
+                  <select
+                    name="location"
+                    id="location"
+                    #locationType
+                    (change)="onChangeLocationType(locationType.value)"
+                  >
+                    <option [value]="towns.Minsk" key="minsk">Минск</option>
+                    <option [value]="towns.Grodno" key="grodno">Гродно</option>
+                    <option [value]="towns.Gomel" key="gomel">Гомель</option>
+                    <option [value]="towns.Brest" key="brest">Брест</option>
+                    <option [value]="towns.Mogilev" key="mogilev">
+                      Могилев
+                    </option>
+                    <option [value]="towns.Vitebsk" key="vitebsk">
+                      Витебск
+                    </option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="form-row row">
+              <div class="col">
+                <div class="form-group">
+                  <select
+                    name="cateringFacilities"
+                    id="cateringFacilities"
+                    [disabled]="
+                      !cateringFacilitiesInCurrentTown.length ? true : null
+                    "
+                    #cateringFacilities
+                    (change)="
+                      onChangeCateringFacility(cateringFacilities.value)
+                    "
+                  >
+                    <option
+                      *ngFor="let option of cateringFacilitiesInCurrentTown"
+                      value="option.id"
+                      key="option.id"
+                    >
+                      {{ option.cateringFacilityName }}
+                    </option>
+                  </select>
+                  <div
+                    class="invalid-feedback"
+                    [ngStyle]="{
+                      display:
+                        cateringFacilitiesInCurrentTown.length &&
+                        currentCateringFacilityIsValid
+                          ? 'none'
+                          : 'block'
+                    }"
+                  >
+                    Не выбрано заведение или заведения в выбранном городе
+                    отсутствуют
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="form-row row">
+              <div class="col">
+                <div class="form-group">
+                  <textarea
+                    class="form-control"
+                    required
+                    formControlName="feedback"
+                    autocomplete="off"
+                    placeholder="Отзыв"
+                  ></textarea>
+                  <div
+                    *ngIf="
+                      feedback &&
+                      feedback.invalid &&
+                      (feedback.dirty || feedback.touched)
+                    "
+                    style="display: block"
+                    class="invalid-feedback"
+                  >
+                    Введите текст отзыва
+                  </div>
+                </div>
+              </div>
+            </div>
+            <button type="submit" class="btn-red btn btn-primary">
+              Отправить отзыв
+            </button>
+          </form>
+        </div>
+        <div class="col"></div>
+      </div>
+    </div>
+  </app-leaves-wrapper>
+</div>

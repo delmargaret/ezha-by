@@ -1,0 +1,40 @@
+<div
+  class="card dish-card"
+  style="max-width: 500px; max-height: 250px"
+  *ngIf="dish"
+>
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img
+        src="{{ mainPicture }}"
+        class="img-fluid rounded-start card-image"
+        alt="..."
+      />
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">{{ dish.dishName }}</h5>
+        <div class="card-text" style="min-height: 156px">
+          {{ dish.description }}
+        </div>
+        <div class="card-text price">
+          <div class="text-muted">{{ dish.price }} руб.</div>
+          <div class="buy">
+            <div class="cart-img" *ngIf="!isOrdered" (click)="addToCart()">
+              <img src="../../../assets/24.png" />
+            </div>
+            <div class="dish-number" *ngIf="isOrdered">
+              <div class="minus" (click)="minusDish()">
+                <i class="fa-solid fa-minus" style="color: black"></i>
+              </div>
+              <div>{{ number }}</div>
+              <div class="plus" (click)="plusDish()">
+                <i class="fa-solid fa-plus" style="color: black"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

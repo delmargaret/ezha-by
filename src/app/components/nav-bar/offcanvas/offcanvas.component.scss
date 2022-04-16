@@ -1,0 +1,26 @@
+#offcanvas-label {
+  display: flex;
+
+  .icon {
+    background: url("../../../../assets/10.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 50px;
+    width: 50px;
+    margin-right: 10px;
+    background-size: contain;
+  }
+
+  a {
+    color: rgba(0, 0, 0, 0.55);
+    text-decoration: none;
+    font-size: 32px;
+    font-weight: 650;
+  }
+}
+
+.offcanvas-body {
+  a {
+    font-size: 24px;
+  }
+}

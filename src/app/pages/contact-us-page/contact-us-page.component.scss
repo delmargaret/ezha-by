@@ -1,0 +1,99 @@
+.contact-us {
+  .contact-us-header {
+    font-weight: 700;
+    font-style: normal;
+    font-size: 52px;
+    color: rgb(0, 0, 0);
+    padding-top: 20px;
+    padding-bottom: 30px;
+    text-align: center;
+  }
+
+  .contact-us-row {
+    display: flex;
+    justify-content: center;
+    font-size: 20px;
+
+    .phone {
+      margin-right: 60px;
+    }
+
+    .img {
+      text-align: center;
+
+      img {
+        height: 80px;
+      }
+    }
+  }
+
+  .hotline,
+  .address {
+    text-align: center;
+  }
+
+  .hotline {
+    margin-top: 30px;
+    font-size: 20px;
+
+    .img {
+      text-align: center;
+
+      img {
+        height: 50px;
+      }
+    }
+
+    .number {
+      font-weight: 700;
+    }
+  }
+
+  .address {
+    margin-top: 25px;
+    font-size: 20px;
+
+    .header {
+      font-weight: 700;
+      font-size: 28px;
+    }
+  }
+
+  .feedback {
+    margin-top: 25px;
+    margin-bottom: 80px;
+    font-size: 20px;
+
+    .header {
+      font-weight: 700;
+      font-size: 28px;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    input {
+      height: 45px;
+    }
+
+    .form-row {
+      margin-bottom: 20px;
+    }
+
+    .form-control {
+      font-size: 20px !important;
+    }
+
+    select {
+      height: 45px;
+      border: 1px solid #ced4da;
+      border-radius: 0.25rem;
+      min-width: -webkit-fill-available;
+      cursor: pointer;
+    }
+
+    button {
+      min-width: -webkit-fill-available;
+      font-size: 20px;
+    }
+  }
+}

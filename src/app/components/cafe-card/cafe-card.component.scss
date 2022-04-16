@@ -1,0 +1,57 @@
+.cafe-card {
+  border-radius: 10px;
+  min-height: 355px;
+  margin-bottom: 25px;
+  cursor: pointer;
+
+  .card-image {
+    border-radius: 10px;
+    border: solid 1px rgb(238, 238, 238);
+  }
+
+  .card-body {
+    .title {
+      font-weight: 700;
+      font-size: 26px;
+    }
+
+    .tags {
+      margin-bottom: 6px;
+      min-height: 24px;
+      font-size: 18px;
+      color: rgb(128, 128, 128);
+    }
+
+    .working-hours {
+      max-width: 120px;
+      border: 1px solid rgb(197, 197, 197);
+      border-radius: 5px;
+      text-align: center;
+      font-size: 16px;
+    }
+
+    .description {
+      margin-top: 10px;
+      display: flex;
+      font-size: 14px;
+      height: 18px;
+      margin-bottom: 10px;
+
+      .field {
+        display: flex;
+        margin-right: 10px;
+
+        .delivery-time {
+          white-space: nowrap;
+          max-width: 100px;
+          text-overflow: ellipsis;
+          overflow: hidden;
+        }
+
+        img {
+          margin-right: 4px;
+        }
+      }
+    }
+  }
+}

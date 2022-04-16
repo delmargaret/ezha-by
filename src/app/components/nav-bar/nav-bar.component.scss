@@ -1,0 +1,61 @@
+.navbar {
+  background-color: #f8f9fa !important;
+  padding: 0.5rem 1rem;
+  display: flex;
+
+  .user {
+    margin-left: 30px;
+  }
+
+  .user,
+  .cart {
+    cursor: pointer;
+  }
+}
+
+.brand {
+  padding-top: 0.3125rem;
+  padding-bottom: 0.3125rem;
+  font-size: 1.25rem;
+  margin-left: calc(50% - 60px);
+  margin-right: auto;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.app-link a {
+  color: rgb(235, 85, 85);
+  display: block;
+  text-decoration: underline !important;
+  cursor: pointer;
+}
+
+.app-link a:hover {
+  color: rgb(235, 10, 10);
+  text-decoration: underline !important;
+}
+
+.app-link a:focus {
+  color: rgb(235, 10, 10);
+  text-decoration: underline !important;
+}
+
+.app-link.loggedin {
+  border-bottom: 1px solid rgb(109, 109, 109);
+  padding: 8px 0;
+}
+
+.nav-collapse {
+  position: absolute;
+  right: 1rem;
+  top: 3.2rem;
+  z-index: 100;
+
+  .card-body {
+    min-width: 200px;
+
+    a {
+      font-size: 18px;
+    }
+  }
+}

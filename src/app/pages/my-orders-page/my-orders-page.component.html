@@ -1,0 +1,66 @@
+<div class="my-orders" [ngClass]="isLoading ? 'disabled' : ''">
+  <div
+    class="main-spinner spinner-border text-danger"
+    role="status"
+    *ngIf="isLoading"
+  >
+    <span class="visually-hidden">Loading...</span>
+  </div>
+
+  <div class="header">
+    <div class="title">Заказы</div>
+  </div>
+  <app-leaves-wrapper leavesClass="large">
+    <div class="order-date-type">
+      <div class="datetype all" (click)="applyFilter($event, 'all')">
+        <div>Все</div>
+      </div>
+      <div class="datetype week" (click)="applyFilter($event, 'week')">
+        <div>Неделю назад</div>
+      </div>
+      <div class="datetype month" (click)="applyFilter($event, 'month')">
+        <div>Месяц назад</div>
+      </div>
+    </div>
+
+    <div class="orders" *ngFor="let order of filteredOrders">
+      <div class="row" id="main-row">
+        <div class="col-3 date-col">
+          <div class="date">
+            {{ convertDate(order.orderDateTime) }}
+          </div>
+        </div>
+        <div class="col-9">
+          <div class="dishes">
+            <div
+              *ngFor="let dish of order.orderDishes"
+              style="display: flex; justify-content: space-between"
+              class="dish"
+            >
+              <div style="width: 150px">{{ dish.cateringFacilityName }}</div>
+              <div>
+                <img
+                  src="{{
+                    dish.dishIconUrl
+                      ? dish.dishIconUrl
+                      : '../../../assets/19.png'
+                  }}"
+                  class="dish-img"
+                />
+              </div>
+              <div style="width: 150px">{{ dish.dishName }}</div>
+              <div style="width: 50px">{{ dish.numberOfDishes }} шт.</div>
+              <div style="width: 100px">
+                {{ (dish.numberOfDishes * dish.price).toFixed(2) }} р.
+              </div>
+            </div>
+
+            <div class="total-price">
+              <div>Общая стоимость: {{ order.totalPrice.toFixed(2) }} р.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </app-leaves-wrapper>
+</div>

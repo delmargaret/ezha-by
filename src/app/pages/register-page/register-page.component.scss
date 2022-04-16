@@ -1,0 +1,27 @@
+.register {
+  .header {
+    font-weight: 700;
+    font-style: normal;
+    font-size: 52px;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom: 50px;
+  }
+
+  input {
+    height: 45px;
+  }
+
+  .form-control {
+    font-size: 20px !important;
+  }
+
+  .form-row {
+    margin-bottom: 20px;
+  }
+
+  .btn-red {
+    font-size: 20px;
+  }
+}

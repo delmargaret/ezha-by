@@ -1,0 +1,31 @@
+.leaves-left {
+  border-width: 0px;
+  position: relative;
+  left: 0px;
+  top: 40px;
+  height: 525px;
+
+  &.large {
+    height: 700px;
+    width: 130px;
+    object-fit: cover;
+  }
+}
+
+.leaves-right {
+  border-width: 0px;
+  position: relative;
+  float: right;
+  top: 40px;
+  height: 525px;
+
+  &.large {
+    height: 700px;
+    width: 130px;
+    object-fit: cover;
+  }
+}
+
+.row {
+  --bs-gutter-x: 0;
+}

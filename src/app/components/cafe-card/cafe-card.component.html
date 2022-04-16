@@ -1,0 +1,31 @@
+<div class="card cafe-card" style="width: 24rem" *ngIf="cafe">
+  <img
+    src="{{ mainPicture }}"
+    class="card-img-top card-image"
+    style="height: 228px; object-fit: contain"
+    alt="..."
+  />
+  <div class="card-body">
+    <div class="title">{{ cafe.cateringFacilityName }}</div>
+    <div class="tags">
+      {{ tags }}
+    </div>
+    <div class="working-hours">{{ cafe.workingHours }}</div>
+    <div class="description">
+      <div class="field">
+        <img src="../../../assets/20.png" />
+        <div class="delivery-time" [title]="cafe.deliveryTime">
+          {{ cafe.deliveryTime }}
+        </div>
+      </div>
+      <div class="field">
+        <img src="../../../assets/21.png" />
+        <div>{{ type }}</div>
+      </div>
+      <div class="field">
+        <img src="../../../assets/22.png" />
+        <div>{{ price }}</div>
+      </div>
+    </div>
+  </div>
+</div>

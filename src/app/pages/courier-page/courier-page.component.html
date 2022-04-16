@@ -1,0 +1,217 @@
+<div class="courier">
+  <div class="header">Работа с "Ежа.by"</div>
+  <div class="we-offer">
+    <div class="text">
+      <div class="title">Мы предлагаем</div>
+      <div class="description">
+        Гибкий график, не привязанный к определенному времени. Вы можете
+        начинать и заканчивать работу когда вам удобно. Для каждого сотрудника
+        проводится индивидуальный инструктаж, а также персональное сопровождение
+        на линии, так что можно начать работать без опыта.
+      </div>
+    </div>
+  </div>
+  <div class="salary">
+    <div class="text">
+      <div class="title">Заработная плата</div>
+      <div class="description">
+        Мы платим за каждый выполненный заказ. Ставка за каждый выполненный
+        заказ для курьера - от 4 до 5,5 рублей. А еще у нас есть крутая
+        премиальная система! Чем больше заказов вы доставите, тем больше будет
+        ваш бонус. Условия сотрудничества для прямых курьеров-партнёров в
+        статусе самозанятых предусматривают ежедневные выплаты.
+      </div>
+    </div>
+  </div>
+  <div class="requirements">
+    <div class="text">
+      <div class="title">Наши требования</div>
+      <div class="description">
+        Мы принимаем на работу только курьеров, достигших возраста 18 лет.
+        Прежде, чем начать работу, вам необходимо будет пройти инструктаж и
+        испытательный срок. Если с первого раза не удалось стать курьером,
+        подать заявку снова можно через месяц.
+      </div>
+    </div>
+  </div>
+  <div class="courier-request">
+    <app-leaves-wrapper>
+      <div class="row" id="main-row">
+        <div class="col"></div>
+        <div class="col-8">
+          <div class="header">Подать заявку</div>
+          <form
+            novalidate
+            (ngSubmit)="onSubmit($event)"
+            [formGroup]="courierForm"
+            class="app-form"
+          >
+            <div class="form-row">
+              <div class="col">
+                <div class="form-group">
+                  <input
+                    type="text"
+                    class="form-control"
+                    required
+                    formControlName="email"
+                    autocomplete="off"
+                    placeholder="Email"
+                  />
+                  <div
+                    *ngIf="
+                      email && email.invalid && (email.dirty || email.touched)
+                    "
+                    style="display: block"
+                    class="invalid-feedback"
+                  >
+                    Введите email
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="form-row row">
+              <div class="col">
+                <div class="form-group">
+                  <input
+                    type="text"
+                    class="form-control"
+                    required
+                    formControlName="surname"
+                    autocomplete="off"
+                    placeholder="Фамилия"
+                  />
+                  <div
+                    *ngIf="
+                      surname &&
+                      surname.invalid &&
+                      (surname.dirty || surname.touched)
+                    "
+                    style="display: block"
+                    class="invalid-feedback"
+                  >
+                    Введите фамилию
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="form-group">
+                  <input
+                    type="text"
+                    class="form-control"
+                    required
+                    formControlName="name"
+                    autocomplete="off"
+                    placeholder="Имя"
+                  />
+                  <div
+                    *ngIf="name && name.invalid && (name.dirty || name.touched)"
+                    style="display: block"
+                    class="invalid-feedback"
+                  >
+                    Введите имя
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="form-row row">
+              <div class="col">
+                <div class="form-group">
+                  <input
+                    type="text"
+                    class="form-control"
+                    required
+                    formControlName="patronymic"
+                    autocomplete="off"
+                    placeholder="Отчество"
+                  />
+                  <div
+                    *ngIf="
+                      patronymic &&
+                      patronymic.invalid &&
+                      (patronymic.dirty || patronymic.touched)
+                    "
+                    style="display: block"
+                    class="invalid-feedback"
+                  >
+                    Введите отчество
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="form-group">
+                  <input
+                    type="text"
+                    class="form-control"
+                    required
+                    formControlName="phone"
+                    autocomplete="off"
+                    placeholder="Телефон"
+                  />
+                  <div
+                    *ngIf="
+                      phone && phone.invalid && (phone.dirty || phone.touched)
+                    "
+                    style="display: block"
+                    class="invalid-feedback"
+                  >
+                    Введите телефон
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="form-row row">
+              <div class="col">
+                <div class="form-group">
+                  <select
+                    name="type"
+                    id="type"
+                    #vehicleType
+                    (change)="onChangeType(vehicleType.value)"
+                  >
+                    <option [value]="types.Car" key="car">Машина</option>
+                    <option [value]="types.Motorcycle" key="motorcycle">
+                      Мотоцикл
+                    </option>
+                    <option [value]="types.Bike" key="bike">Велосипед</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="form-row" *ngIf="currentType !== types.Bike">
+              <div class="col">
+                <div class="form-group">
+                  <input
+                    type="number"
+                    class="form-control"
+                    step="0.1"
+                    min="1"
+                    required
+                    formControlName="fuelConsumption"
+                    autocomplete="off"
+                    placeholder="Расход топлива"
+                  />
+                  <div
+                    *ngIf="
+                      fuelConsumption &&
+                      fuelConsumption.invalid &&
+                      (fuelConsumption.dirty || fuelConsumption.touched)
+                    "
+                    style="display: block"
+                    class="invalid-feedback"
+                  >
+                    Введите расход топлива / 100км (минимум 1л)
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <button type="submit" class="btn-red btn btn-primary">
+              Отправить заявку
+            </button>
+          </form>
+        </div>
+        <div class="col"></div>
+      </div>
+    </app-leaves-wrapper>
+  </div>
+</div>
