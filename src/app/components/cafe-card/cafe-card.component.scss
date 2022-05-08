@@ -13,6 +13,10 @@
     .title {
       font-weight: 700;
       font-size: 26px;
+      max-width: 20rem;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
     }
 
     .tags {
@@ -28,6 +32,9 @@
       border-radius: 5px;
       text-align: center;
       font-size: 16px;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
     }
 
     .description {

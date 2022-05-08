@@ -6,11 +6,15 @@
     alt="..."
   />
   <div class="card-body">
-    <div class="title">{{ cafe.cateringFacilityName }}</div>
+    <div class="title" [title]="cafe.cateringFacilityName">
+      {{ cafe.cateringFacilityName }}
+    </div>
     <div class="tags">
       {{ tags }}
     </div>
-    <div class="working-hours">{{ cafe.workingHours }}</div>
+    <div class="working-hours" [title]="cafe.workingHours">
+      {{ cafe.workingHours }}
+    </div>
     <div class="description">
       <div class="field">
         <img src="../../../assets/20.png" />

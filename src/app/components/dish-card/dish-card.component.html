@@ -1,8 +1,4 @@
-<div
-  class="card dish-card"
-  style="max-width: 500px; max-height: 250px"
-  *ngIf="dish"
->
+<div class="card dish-card" style="width: 500px; height: 250px" *ngIf="dish">
   <div class="row g-0">
     <div class="col-md-4">
       <img
@@ -13,7 +9,7 @@
     </div>
     <div class="col-md-8">
       <div class="card-body">
-        <h5 class="card-title">{{ dish.dishName }}</h5>
+        <h5 class="card-title" [title]="dish.dishName">{{ dish.dishName }}</h5>
         <div class="card-text" style="min-height: 156px">
           {{ dish.description }}
         </div>

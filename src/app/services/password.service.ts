@@ -32,7 +32,7 @@ export class PasswordService {
         return StrengthLevel.best;
       }
 
-      this.info = 'Strength: none. Password is empty.';
+      this.info = 'Пароль: никакой. Пароль пустой.';
       password?.markAsDirty();
       this.setInvalid();
       return StrengthLevel.none;
@@ -40,7 +40,7 @@ export class PasswordService {
 
     if (passwordLength < 10) {
       this.info =
-        'Strength: weak. Password length should be greater or equal 10.';
+        'Пароль: слабый. Длина пароля должна быть больше либо равна 10.';
       password?.markAsDirty();
       this.setInvalid();
       return StrengthLevel.weak;
@@ -65,7 +65,7 @@ export class PasswordService {
 
     if (containsBlockedPasswords || containsPersonalData) {
       this.info =
-        'Strength: weak. Password contains common words, known passwords or personal data.';
+        'Пароль: слабый. Пароль содержит известные слова, пароли или персональные данные.';
       password?.markAsDirty();
       this.setInvalid();
       return StrengthLevel.weak;
@@ -73,7 +73,7 @@ export class PasswordService {
 
     if (symbolTypeCount < 2) {
       this.info =
-        'Strength: weak. Password should have upper case, lower case, symbols, or numbers (at least two of those four groups).';
+        'Пароль: слабый. Пароль должен содержать нижний/верхний регистры, символы или цифры (минимум две из этих четырех групп).';
       password?.markAsDirty();
       this.setInvalid();
       return StrengthLevel.weak;
@@ -81,33 +81,33 @@ export class PasswordService {
 
     if (symbolTypeCount == 2) {
       this.info =
-        'Strength: medium. Password should have upper case, lower case, symbols, or numbers (only two of those four groups are used).';
+        'Пароль: средний. Пароль должен содержать нижний/верхний регистры, символы или цифры (только две из этих четырех групп использованы).';
       this.setInvalid();
       return StrengthLevel.medium;
     }
 
     if (existsInLibrary || containsCharacterSequence) {
       this.info =
-        'Strength: medium. Password contains common word or sequence of characters.';
+        'Пароль: средний. Пароль содержит известные слова или последовательность символов.';
       this.setInvalid();
       return StrengthLevel.medium;
     }
 
     if (passwordLength < 14) {
       this.info =
-        'Strength: strong. Password should contain at least 14 characters to be stronger.';
+        'Пароль: стойкий. Длина пароля должна быть минимум 14 символов чтобы пароль был сильнее.';
       this.setValid();
       return StrengthLevel.strong;
     }
 
     if (containsSimilarWords) {
       this.info =
-        'Strength: strong. Password contains word similar to common word.';
+        'Пароль: стойкий. Пароль содержит слова схожие с известными словами.';
       this.setValid();
       return StrengthLevel.strong;
     }
 
-    this.info = 'Strength: best.';
+    this.info = 'Пароль: отличный.';
     this.setValid();
     return StrengthLevel.best;
   }
@@ -136,7 +136,7 @@ export class PasswordService {
   }
 
   containsCharacterSequence(word: string) {
-    return /(.)\1{2}/.test(word);
+    return /(.)\1{3}/.test(word);
   }
 
   containsBlockedPasswords(word: string) {

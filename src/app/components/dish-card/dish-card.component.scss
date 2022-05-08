@@ -1,6 +1,5 @@
 .dish-card {
   border-radius: 10px;
-  max-height: 200px;
   margin-bottom: 30px;
 
   .card-image {
@@ -14,6 +13,10 @@
     .card-title {
       font-weight: 700;
       font-size: 24px;
+      width: 260px;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
     }
 
     .card-text.price {
