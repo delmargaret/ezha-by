@@ -188,8 +188,8 @@
                   >
                     <option
                       *ngFor="let option of cateringFacilitiesInCurrentTown"
-                      value="option.id"
-                      key="option.id"
+                      [value]="option.id"
+                      [key]="option.id"
                     >
                       {{ option.cateringFacilityName }}
                     </option>
