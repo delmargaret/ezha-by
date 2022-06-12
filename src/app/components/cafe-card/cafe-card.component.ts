@@ -41,7 +41,7 @@ export class CafeCardComponent implements OnInit {
   get tags() {
     return this.cafe?.cateringFacilityTags?.length
       ? this.cafe?.cateringFacilityTags?.length > 2
-        ? `${this.cafe?.cateringFacilityTags[0]}, ${this.cafe?.cateringFacilityTags[1]}...`
+        ? `${this.cafe?.cateringFacilityTags[0].tagName}, ${this.cafe?.cateringFacilityTags[1].tagName}...`
         : this.cafe?.cateringFacilityTags.map((x) => x.tagName).join(', ')
       : '';
   }
